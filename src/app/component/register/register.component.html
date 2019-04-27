@@ -1,31 +1,31 @@
 <div class="background-image">
-<div fxLayout="column" fxLayoutAlign="space-around center">
-
+<div class="main" fxLayout="column" fxLayoutAlign="space-around center">
     <mat-card class="card" fxFlex='200'>
   <h1 class="title">{{title}} !</h1>
   <div fxLayout="column" fxLayoutAlign="space-between start">
-<mat-form-field appearance="outline">
+<mat-form-field class="inputStyle" appearance="outline">
   <mat-label>Name</mat-label>
-  <input matInput type="text" placeholder="Placeholder" [(ngModel)]="user.name">
+  <input matInput type="text" placeholder="" name="name" ngModel pattern="[a-zA-Z ]*" [(ngModel)]="user.name" required>
   <mat-icon class="green-icon" matSuffix>account_circle</mat-icon>
   <mat-hint></mat-hint>
 </mat-form-field>
 
-<mat-form-field appearance="outline">
+<mat-form-field class="inputStyle" appearance="outline">
   <mat-label>Email</mat-label>
-  <input matInput type="text" placeholder="Placeholder" [(ngModel)]="user.emailId">
+  <input matInput type="text" placeholder=""   [(ngModel)]="user.emailId"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="emailId" required>
   <mat-icon class="green-icon" matSuffix>contact_mail</mat-icon>
   <mat-hint></mat-hint>
+  
 </mat-form-field>
-<mat-form-field appearance="outline">
+<mat-form-field class="inputStyle" appearance="outline">
   <mat-label>Cell Number</mat-label>
-  <input matInput type="text" placeholder="Placeholder" [(ngModel)]="user.phNumber">
+  <input matInput type="text" placeholder=""  [(ngModel)]="user.phNumber" required>
   <mat-icon class="green-icon" matSuffix> call</mat-icon>
   <mat-hint></mat-hint>
 </mat-form-field>
-<mat-form-field appearance="outline">
+<mat-form-field class="inputStyle" appearance="outline">
     <mat-label>Password</mat-label>
-    <input matInput type="password" placeholder="Placeholder" [(ngModel)]="user.password">
+    <input matInput type="password" placeholder=""  [(ngModel)]="user.password" required>
     <mat-icon class="green-icon" matSuffix>visibility_off</mat-icon>
     <mat-hint></mat-hint>
   </mat-form-field>

@@ -3,19 +3,26 @@ import { unusedValueExportToPlacateAjd } from '@angular/core/src/render3/interfa
 import { LoginDto } from 'src/app/model/user.login.model';
 import { UserService } from 'src/app/Service/user.service';
 import { MatSnackBar } from '@angular/material';
+import { Router, Route, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+   token :string
   loginDto = new LoginDto();
   
   constructor(private httpUser: UserService,
-    private snackbar:MatSnackBar) { }
-
-  ngOnInit() {
+    private snackbar:MatSnackBar,
+    private route :ActivatedRoute) { }
+ 
+  ngOnInit() { 
+   this.token = this.route.snapshot.params['token']
+   console.log('login-->'+this.token);
+   if(this.token.length!=0){
+     this.httpUser.verifyUser(this.token).subscribe(data=> console.log(data))
+   }
   }
   login()
   {

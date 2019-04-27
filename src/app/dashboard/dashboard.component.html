@@ -1,0 +1,22 @@
+<div>
+    <mat-toolbar class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <img src="https://www.google.com/images/icons/product/keep-512.png" height="48" width="45">
+        <h1 >FundooNotes</h1>
+        <div>
+        <mat-form-field class="searchBar" appearance="outline">
+            <input matInput placeholder="">
+            </mat-form-field>
+        </div>   
+      </mat-toolbar>
+  <mat-sidenav-container> 
+    <mat-sidenav>
+      <mat-nav-list>
+        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <p *ngFor="let content of fillerContent">{{content}}</p>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

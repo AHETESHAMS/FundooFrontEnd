@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './Service/user.service';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { SetPasswordComponent } from './component/set-password/set-password.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SetPasswordComponent } from './component/set-password/set-password.comp
     RegisterComponent,
     ForgotPasswordComponent,
     SetPasswordComponent,
+    DashboardComponent,
     
     
   ],

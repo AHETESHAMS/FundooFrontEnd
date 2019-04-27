@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { user } from '../model/user.register.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import{LoginDto} from '../model/user.login.model'
+import{LoginDto} from '../model/user.login.model';
 import { SendMail } from '../model/user.sendmail.model';
 import { SetPasswordDto } from '../model/user.setpassword.model';
 
@@ -30,9 +30,13 @@ export class UserService {
     console.log("Setting password");
     return this.http.post("http://localhost:8080/forgotPassword?emailId="+userRequestBody.emailId,userRequestBody);
   }
-  setPassword(userRequestBody:SetPasswordDto)
+  setPassword(token,userRequestBody:SetPasswordDto):Observable<any>
   {
 
+      console.log("Set password running..!"+token);
+      return this.http.put("http://localhost:8080/setPassword/"+token+"?newPassword="+userRequestBody.password,userRequestBody);
   }
-  
+  verifyUser(token:string):Observable<any>{
+    return this.http.get("http://localhost:8080/user/"+token)
+  }
 }
