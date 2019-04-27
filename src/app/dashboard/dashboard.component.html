@@ -1,57 +1,58 @@
-<div class="main">
-  <mat-toolbar fxLayout="row" class="tool-bar">
+<div >
+  <mat-toolbar  >
+    <div  class="adjust">
     <div>
-      <button mat-icon-button fxFlex="100" fxLayout="row" fxLayoutAlign="center center" (click)="snav.toggle()">
-        <mat-icon matTooltip="Main menu">menu</mat-icon>
+      <button mat-icon-button  (click)="snav.toggle()" matTooltip="Main menu">
+        <mat-icon >menu</mat-icon>
       </button>
     </div>
-
+    <div style="display: flex;flex-direction: row">
     <div>
-      <img src="https://www.google.com/images/icons/product/keep-512.png" alt="FundooNotes Logo" fxFlex="150"
-        fxLayoutAlign="center center" style="width:40px;height:40px">
+      <img src="https://www.google.com/images/icons/product/keep-512.png" alt="FundooNotes Logo" 
+       style="width:40px;height:40px">
+    </div>
+    <div>{{"FundooNotes"}}</div>
     </div>
 
-    <div class="title" fxFlex="10" fxLayoutAlign="center center">
-      <h1>FundooNotes</h1>
-    </div>
-
-    <div fxFlex="55" fxLayout="row" fxLayoutAlign="start start">
-      <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search">
-        <button mat-icon-button class="search-button">
+  
+     <div >
+        <button mat-icon-button >
           <mat-icon matTooltip="Search">search</mat-icon>
         </button>
-        <input fxFlex="90" [(ngModel)]="value" (keyup)="onKeyUp($event)" matInput placeholder="Search"
-          [style.fontSize.px]="16" class="search-window" autocomplete="off" />
-      </mat-form-field>
-    </div>
-
-    <div fxFlex="25" class="settingbtn">
-      <button mat-icon-button color="basic" (click)="refresh()" id="refresh" matTooltip="Refresh">
+        <input class="input-field" [(ngModel)]="value" (keyup)="onKeyUp($event)" matInput placeholder="Search"
+           autocomplete="off" />
+        </div>
+   
+<div class="new-change"> 
+    <div >
+      <button mat-icon-button color="basic" (click)="refresh()"  matTooltip="Refresh">
         <mat-icon>refresh</mat-icon>
       </button>
     </div>
 
     <div>
-      <button mat-icon-button color="basic" id="listgrid" fxLayoutAlign="start start" style="width:30px;height:30px">
+      <button mat-icon-button color="basic" >
         <mat-icon>add_alert</mat-icon>
       </button>
     </div>
 
     <div>
-      <button mat-icon-button color="basic" id="settingbtn" fxLayoutAlign="start start" style="width:30px;height:30px">
-        <mat-icon>
-          <img src="../../../assets/baseline-settings-20px.svg" />
-        </mat-icon>
+      <button mat-icon-button color="basic" >
+        <mat-icon>settings</mat-icon>
       </button>
     </div>
 
-    <div>
-      <button mat-icon-button color="basic" id="account" fxFlex=35 fxLayoutAlign="center center" style="width:45px;height:45px">
-        <mat-icon>
-          <img src="../../../assets/baseline-account_circle-24px.svg" />
-        </mat-icon>
+   
+  </div>
+  <div>
+      <button mat-icon-button color="basic" >
+        <mat-icon>apps</mat-icon>
       </button>
     </div>
+    <div>
+        <button mat-mini-fab color="primary">A</button>
+    </div>
+  </div>
   </mat-toolbar> 
 </div>
 <div>
