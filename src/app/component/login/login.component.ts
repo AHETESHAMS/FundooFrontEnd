@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   
   constructor(private httpUser: UserService,
     private snackbar:MatSnackBar,
-    private route :ActivatedRoute) { }
+    private route :ActivatedRoute,
+    private router:Router) { }
  
   ngOnInit() { 
    this.token = this.route.snapshot.params['token']
@@ -26,10 +27,10 @@ export class LoginComponent implements OnInit {
   }
   login()
   {
-    console.log("Button clicked");
     this.httpUser.userLogin(this.loginDto).subscribe(data=>
       { this.snackbar.open(data.message,'undo' ,{duration:5000});
   console.log(data)})
+  
   }
   
 }
