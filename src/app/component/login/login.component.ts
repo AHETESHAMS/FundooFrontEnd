@@ -20,17 +20,27 @@ export class LoginComponent implements OnInit {
  
   ngOnInit() { 
    this.token = this.route.snapshot.params['token']
-   console.log('login-->'+this.token);
-   if(this.token.length!=0){
-     this.httpUser.verifyUser(this.token).subscribe(data=> console.log(data))
-   }
+    console.log('login-->'+this.token);
+    if(this.token.length!=0){
+      this.httpUser.verifyUser(this.token).subscribe(data=> console.log(data))
+    }
   }
   login()
   {
+    if(this.loginDto.emailId==null)
+    {
+      this.snackbar.open('Please Enter EmailId','undo' ,{duration:5000});
+    }
+    else if(this.loginDto.password==null)
+    {
+      this.snackbar.open('Please Enter Password','undo' ,{duration:5000});
+    }
+    else
+    {
     this.httpUser.userLogin(this.loginDto).subscribe(data=>
       { this.snackbar.open(data.message,'undo' ,{duration:5000});
-  console.log(data)})
-  
+     console.log(data)})
+    } 
   }
   
 }

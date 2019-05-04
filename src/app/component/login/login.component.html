@@ -8,13 +8,12 @@
       <mat-label>Email</mat-label>
       <input matInput type="email" placeholder="Placeholder" [(ngModel)]="loginDto.emailId" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="emailId" required>
       <mat-icon class="green-icon" matSuffix>contact_mail</mat-icon>
-      <mat-hint></mat-hint>
     </mat-form-field>
     <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
         <input matInput type="password" placeholder="Placeholder" [(ngModel)]="loginDto.password" name="" required>
         <mat-icon class="green-icon" matSuffix>visibility_off</mat-icon>
-        <mat-hint></mat-hint>
+       
       </mat-form-field>
     <button mat-raised-button color="primary" (click)="login()">Login</button>
     <a href="http://localhost:4200/forgotPassword">ForgotPassword</a>
