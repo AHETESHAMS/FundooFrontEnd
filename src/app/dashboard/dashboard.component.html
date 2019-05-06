@@ -1,51 +1,58 @@
-<div >
-    <mat-toolbar >
-      <mat-toolbar-row style="display: flex;justify-content: space-between">
+<div fxLayout="row" fxLayoutAlign="space-around start">
+    <mat-toolbar>
+      <mat-toolbar-row>
       
       <div>  
         <button mat-icon-button  (click)="snav.toggle()" matTooltip="Main menu">
           <mat-icon >menu</mat-icon>
         </button>
-        
       </div>
-      <div style="display: flex;flex-direction: row;justify-content: space-between; padding-left: 52px">
-        <div>
+      <div style="display: flex;flex-direction: row;justify-content: space-between;">
+        <div style="margin-top: 4%">
           <img src="https://www.google.com/images/icons/product/keep-512.png" alt="FundooNotes Logo" 
            style="width:40px;height:40px">
         </div>
-      <div>{{"FundooNotes"}}</div>
+      <div style="margin-top: 7%; margin-left: 7%">{{"FundooNotes"}}</div>
       </div>
   <div>
   <div>
     <button mat-icon-button>
-        <mat-icon style="padding-left: 47px" matTooltip="Search">search</mat-icon>
+        <mat-icon class="matSearchIcon" matTooltip="Search">search</mat-icon>
         </button>
-     <input class="input-field" [(ngModel)]="value"  matInput placeholder="Search" 
+     <input class="input-field" [(ngModel)]="value"   matInput placeholder="Search" 
         autocomplete="off"/>
       </div>
       
   </div>
      
-  <div style="display: flex;flex-direction: row;justify-content: space-between"> 
+  <div fxLayout="row" fxLayoutAlign="space-between start"> 
       <div >
-        <button mat-icon-button color="basic" (click)="refresh()"  matTooltip="Refresh">
+        <button style="margin-left: 50%" mat-icon-button color="basic" (click)="refresh()"  matTooltip="Refresh">
           <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+      <div >
+        <button style="margin-left: 91%" mat-icon-button color="basic" (click)="settings()"  matTooltip="Refresh">
+          <mat-icon>settings</mat-icon>
         </button>
       </div>
   
       <div>
-        <button mat-icon-button color="basic">
+        <button style="margin-left: 305%" mat-icon-button color="basic">
           <mat-icon>grid_on</mat-icon>
         </button>
       </div> 
     
       <div>
-          <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu">A</button>
-          <mat-menu #menu="matMenu">
+       
+          <button style="margin-left:333%" mat-mini-fab color="primary" [matMenuTriggerFor]="menu">A</button>
+       <mat-menu #menu="matMenu">
+            <mat-card fxLayout="row" fxLayoutAlign="space-around center">
             <button mat-menu-item routerLink="/register">Add account</button>
-            <button mat-menu-item>Sign out</button>
+            <button mat-menu-item routerLink="/login">Sign out</button>
+            </mat-card>
           </mat-menu>
-      </div>
+        </div>
     </div>
     
   </mat-toolbar-row>
@@ -57,13 +64,13 @@
             fixedTopGap="56">
             <mat-nav-list>
                 
-              <a mat-list-item routerLink="." *ngFor="let nav of fillerNav"><mat-icon matPrefix>lightbulb_outline</mat-icon>Notes</a>
+              <a mat-list-item ><mat-icon matPrefix>lightbulb_outline</mat-icon>Notes</a>
               
-              <a mat-list-item routerLink="." *ngFor="let nav of fillerNav"><mat-icon matPrefix>notifications_none</mat-icon>Reminder</a>
+              <a mat-list-item ><mat-icon matPrefix>notifications_none</mat-icon>Reminder</a>
             </mat-nav-list>
           </mat-sidenav>
           <mat-sidenav-content>
-            <p *ngFor="let content of fillerContent">{{content}}</p>
           </mat-sidenav-content>
         </mat-sidenav-container>
     </div>
+   

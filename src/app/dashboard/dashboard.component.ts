@@ -9,7 +9,6 @@ import {ChangeDetectorRef,OnDestroy} from '@angular/core';
 export class DashboardComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
 
-  fillerNav = Array.from({length: 1}, (_, i) => `Notes`);
 
   
 
@@ -25,6 +24,5 @@ export class DashboardComponent implements OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 }
 

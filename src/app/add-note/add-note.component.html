@@ -1,0 +1,21 @@
+<div>
+<mat-card *ngIf="!showAddNote" style="width: 42%;margin-top: 7%;margin-left: 28%;">
+  <div>
+<input  [(ngModel)]="value" matInput placeholder="Take a Note" 
+autocomplete="off" (click)="showCard()" style=" outline: none; border: none;"/>
+</div>
+      </mat-card>        
+</div>
+  <div fxLayout="column" fxLayoutAlign="space-around center"  *ngIf="showAddNote">
+      <mat-card style="border: 1px solid transparent;width: 42%;margin-left: 0%;margin-top: 7%">
+      <div>
+         <input  [(ngModel)]="title" matInput placeholder="Title" 
+      autocomplete="off" (click)="showCard()" style=" outline: none; border: none;font-size: 25px;"/>
+         </div>
+       <div>
+         <input  [(ngModel)]="takeANote" matInput placeholder="Take a Note" 
+      autocomplete="off" style=" outline: none; border: none;"/>
+         </div>
+        
+      </mat-card>
+      </div>

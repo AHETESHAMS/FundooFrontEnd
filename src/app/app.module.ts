@@ -15,6 +15,7 @@ import { UserService } from './Service/user.service';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { SetPasswordComponent } from './component/set-password/set-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddNoteComponent } from './add-note/add-note.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ForgotPasswordComponent,
     SetPasswordComponent,
     DashboardComponent,
+    AddNoteComponent,
     
     
   ],

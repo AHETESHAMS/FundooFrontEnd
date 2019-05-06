@@ -1,38 +1,9 @@
-.main{
-  display: flex;
-  justify-content: space-between;
-  flex: 1
-}
-.title{
-  margin: 15px;
-  margin-left: 10px;
-}
-.refresh{
-  margin-left: 10%;
-}
-.listgrid{
-  margin-left: -230px;
-  margin-top: -12px;
-}
-.settingbtn{
-  margin-left: -130pt;
-  margin-top: -13pt;
-}
-.account{
-  margin-left: -100px;
-}
-
 .matcontainer
 {
   height: -webkit-fill-available;
   width: -webkit-fill-available;
 }
-.adjust{
-display:flex;
-flex-direction: row;
-width: 100%;
-justify-content: space-between;
-}
+
 .input-field{
   width: 700px;
     height: 50px;
@@ -55,4 +26,19 @@ justify-content: space-between;
 
 input.input-field:focus{
   outline-width: 0;
+}
+.matToolbar
+{
+  display: flex;
+  justify-content: space-between
+}
+.matSearchIcon
+{
+  padding-left: 47px;
+}
+.matIcons
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

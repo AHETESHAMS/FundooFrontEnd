@@ -5,6 +5,7 @@ import { LoginComponent } from './component/login/login.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { SetPasswordComponent } from './component/set-password/set-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddNoteComponent } from './add-note/add-note.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component:DashboardComponent
+  },
+  {
+    path:'addNote',
+    component:AddNoteComponent
   }
 ];
 
