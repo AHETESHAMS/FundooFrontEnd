@@ -17,5 +17,10 @@ export class AddNoteComponent implements OnInit {
     console.log("Clicked");
     this.showAddNote=true;
   }
+  createNote()
+  {
+    
+    this.showAddNote=false;
+  }
 
 }

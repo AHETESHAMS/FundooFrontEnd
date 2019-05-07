@@ -14,8 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './Service/user.service';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { SetPasswordComponent } from './component/set-password/set-password.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddNoteComponent } from './add-note/add-note.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { AddNoteComponent } from './component/add-note/add-note.component';
+import { NoteIconsComponent } from './component/note-icons/note-icons.component';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { AddNoteComponent } from './add-note/add-note.component';
     SetPasswordComponent,
     DashboardComponent,
     AddNoteComponent,
+    NoteIconsComponent,
+   
     
     
   ],

@@ -1,0 +1,28 @@
+<div fxLayout="row" fxLayoutAlign="space-around center">
+<mat-card *ngIf="!showAddNote" style="border: 1px solid transparent;width: 42%;margin-top: 2%;margin-left: 14%">
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+<input  [(ngModel)]="value" matInput placeholder="Take a Note" 
+autocomplete="off" (click)="showCard()" style=" outline: none; border: none;width: 50%;font-size: .875rem;"/>
+<button mat-icon-button><mat-icon>check_box</mat-icon></button>
+<button mat-icon-button><mat-icon>brush</mat-icon></button>
+<button mat-icon-button><mat-icon>image</mat-icon></button>
+</div>
+ </mat-card>        
+</div>
+<div fxLayout="column" fxLayoutAlign="space-around center"  *ngIf="showAddNote">
+      <mat-card style="border: 1px solid transparent;width: 42%;margin-top: 2%;margin-left: 14%">
+      <div>
+         <input  [(ngModel)]="title" matInput placeholder="Title" 
+      autocomplete="off" (click)="showCard()" style=" outline: none; border: none;font-size: 20px;"/>
+         </div>
+       <div>
+         <input  [(ngModel)]="takeANote" matInput placeholder="Take a Note" 
+      autocomplete="off" style=" outline: none; border: none;"/>
+         </div>
+         
+       <div>
+           <app-note-icons></app-note-icons>
+          <button mat-button (click)="createNote()">Close</button>
+          </div>  
+      </mat-card>
+      </div>

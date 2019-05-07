@@ -1,7 +1,8 @@
 .matcontainer
 {
-  height: -webkit-fill-available;
-  width: -webkit-fill-available;
+  // height: -webkit-fill-available;
+  // width: -webkit-fill-available;
+  height:100vh;
 }
 
 .input-field{
@@ -41,4 +42,7 @@ input.input-field:focus{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.sidenav{
+  width:17%
 }

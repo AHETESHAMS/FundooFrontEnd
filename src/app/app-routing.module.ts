@@ -4,8 +4,9 @@ import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { ForgotPasswordComponent } from './component/forgot-password/forgot-password.component';
 import { SetPasswordComponent } from './component/set-password/set-password.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddNoteComponent } from './add-note/add-note.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { AddNoteComponent } from './component/add-note/add-note.component';
+import { NoteIconsComponent } from './component/note-icons/note-icons.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path:'addNote',
     component:AddNoteComponent
+  },
+  {
+    path:'noteIcons',
+    component:NoteIconsComponent
   }
 ];
 
