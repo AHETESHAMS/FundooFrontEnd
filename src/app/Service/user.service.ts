@@ -11,7 +11,6 @@ import { SetPasswordDto } from '../model/user.setpassword.model';
   providedIn: 'root'
 })
 export class UserService {
-  
   constructor(private http : HttpClient) { }
   
   
