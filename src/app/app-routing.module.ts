@@ -7,7 +7,7 @@ import { SetPasswordComponent } from './component/set-password/set-password.comp
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
 import { NoteIconsComponent } from './component/note-icons/note-icons.component';
-
+import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.component';
 const routes: Routes = [
   {
     path:'register',children:[
@@ -40,6 +40,10 @@ const routes: Routes = [
   {
     path:'noteIcons',
     component:NoteIconsComponent
+  },
+  {
+    path: 'getAllNotes',
+    component:GetAllNotesComponent
   }
 ];
 

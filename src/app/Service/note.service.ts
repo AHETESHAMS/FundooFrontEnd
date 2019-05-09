@@ -14,4 +14,9 @@ export class NoteService {
       console.log('token----->'+localStorage.getItem('token'))
       return this.http.post("http://localhost:8080/createnote?token="+localStorage.getItem('token'),userRequestBody);
   }
+  getAllNotes()
+  {
+    console.log(localStorage.getItem('token'));
+    return this.http.get("http://localhost:8080/getallnotes?token="+localStorage.getItem('token'));
+  }
 }

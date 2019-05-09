@@ -39,4 +39,8 @@ export class NoteIconsComponent implements OnInit {
   {
     console.log("reminder");
   }
+  deleteNote()
+  {
+    console.log("deleted");
+  }
 }

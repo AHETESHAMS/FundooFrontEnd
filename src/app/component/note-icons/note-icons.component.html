@@ -8,6 +8,9 @@
   <mat-icon>more_vert</mat-icon>
 </button>
 <mat-menu #more="matMenu">
+  <button mat-menu-item (click)="deleteNote()">
+      <span>Delete Note</span>
+  </button>
   <button mat-menu-item>
     <span>Change labels</span>
   </button>
