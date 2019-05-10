@@ -28,12 +28,12 @@
     center" fxFlex="200">
     <div *ngFor="let colors of colorCode">
     <div  *ngFor="let color of colors">
-    <button mat-icon-button [ngStyle]="{'color': color.colorCode}" (click)="changeColor(color.colorCode)">
-    <mat-icon style="font-size: 40px" class="colorIcons" (click)="updateNote(color.colorCode)">fiber_manual_record</mat-icon>
+    <button mat-icon-button [ngStyle]="{'color': color.colorCode}" (click)="changeColor(color.name)">
+    <mat-icon style="font-size: 40px" class="colorIcons" (click)="updateNote(color.name)">fiber_manual_record</mat-icon>
     </button>
   </div>
     </div>
     </div>
-    </ng-template>
+  </ng-template>
     </mat-menu>
 </div>

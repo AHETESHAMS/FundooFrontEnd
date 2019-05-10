@@ -8,6 +8,9 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AddNoteComponent } from './component/add-note/add-note.component';
 import { NoteIconsComponent } from './component/note-icons/note-icons.component';
 import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.component';
+import { TrashComponent } from './component/trash/trash.component';
+import { PinComponent } from './component/pin/pin.component';
+import { ArchiveComponent } from './component/archive/archive.component';
 const routes: Routes = [
   {
     path:'register',children:[
@@ -44,6 +47,18 @@ const routes: Routes = [
   {
     path: 'getAllNotes',
     component:GetAllNotesComponent
+  },
+  {
+    path:'trash',
+    component: TrashComponent
+  },
+  {
+    path:'pin',
+    component:PinComponent
+  },
+  {
+    path:'archive',
+    component:ArchiveComponent
   }
 ];
 

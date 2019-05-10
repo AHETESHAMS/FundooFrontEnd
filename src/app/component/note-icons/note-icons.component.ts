@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import {NoteService} from 'src/app/Service/note.service';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-note-icons',
   templateUrl: './note-icons.component.html',
   styleUrls: ['./note-icons.component.scss']
 })
 export class NoteIconsComponent implements OnInit {
-
-  constructor() { }
-
+  @Input() notes:any;
+  constructor(private httpUser: NoteService) {
+   
+   }
+   colors:any;
   ngOnInit() {
+
   }
   colorCode= [
     [
@@ -41,6 +45,28 @@ export class NoteIconsComponent implements OnInit {
   }
   deleteNote()
   {
-    console.log("deleted");
+    console.log("noteId="+this.notes.id);
+      this.httpUser.deleteNote(this.notes.id).subscribe(response=>{
+        console.log(response);
+      });
   }
+  changeColor(color)
+  {
+    //this.colors=color
+    //console.log(this.colors)
+    console.log("Set color");
+  }
+  
+  updateNote(color:any)
+  {
+    console.log("update note color:="+color);
+    console.log(this.notes.id);
+    this.httpUser.updateColor(color,this.notes.id).subscribe(response=>{
+    console.log(response)
+    },
+    error=>{
+  console.log('error===',error)
+    })
+  }
+
 }

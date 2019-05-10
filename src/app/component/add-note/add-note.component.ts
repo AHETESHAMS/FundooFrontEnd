@@ -26,13 +26,16 @@ export class AddNoteComponent implements OnInit {
   {
     if(this.noteDto.title==null && this.noteDto.description==null)
     {
-      
+      this.showAddNote=false;
     }
-    console.log(this.noteDto);
-    this.httpUser.createNote("/createnote?token="+localStorage.getItem('token'),this.noteDto).subscribe(data=>
-      { this.snackbar.open(data.message,'undo' ,{duration:5000});
-    console.log(data)})
-    this.showAddNote=false;
+    else
+    {
+      console.log(this.noteDto);
+      this.httpUser.createNote("/createnote?token="+localStorage.getItem('token'),this.noteDto).subscribe(data=>
+        { this.snackbar.open(data.message,'undo' ,{duration:5000});
+      console.log(data)})
+      this.showAddNote=false;
+    } 
   }
 
 }
