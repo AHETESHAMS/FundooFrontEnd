@@ -27,9 +27,9 @@ export class NoteIconsComponent implements OnInit {
     { name: "teal", colorCode: "#96ffec" },
     ],
     [
-    { name: "blue", colorCode: "#c4f0f7" },
+    { name: "blue", colorCode: "#ADD8E6" },
     { name: "darkblue", colorCode: "#a6cbf7" },
-    { name: "purple", colorCode: "#d9aff7" },
+    { name: "purple", colorCode: "#800080" },
     ],
     
     [
@@ -68,5 +68,13 @@ export class NoteIconsComponent implements OnInit {
   console.log('error===',error)
     })
   }
-
+ archive()
+ {
+  console.log("noteId="+this.notes.id);
+  this.httpUser.archiveNote(this.notes.id).subscribe(response=>{
+  console.log(response);
+    
+  });
+ }
+   
 }

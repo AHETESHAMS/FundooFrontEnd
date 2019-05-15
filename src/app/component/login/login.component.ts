@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
     this.httpUser.userLogin(this.loginDto).subscribe(data=>
       { this.snackbar.open(data.message,'undo' ,{duration:5000});
      localStorage.setItem('token',data.token)})
+     this.router.navigateByUrl("/dashboard");
     } 
   }
   

@@ -1,9 +1,19 @@
-<div fxLayout="row wrap" fxLayoutAlign="space-around center"> 
-  <div *ngFor="let note of notes" style="margin-top: 5%">
-    <mat-card [style.background-color]=note.color>
+<app-add-note></app-add-note>
+<h5 style="margin-left: 35%; font-weight: normal;">PINNED</h5>
+<div>
+  <app-pin></app-pin>
+</div>  
+  <h5 style="margin-left: 35%;  font-weight: normal;">OTHERS</h5>  
+<div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="40px"> 
+  <div *ngFor="let note of notes" style="margin-top: 5%;">
+    <mat-card [style.background-color]=note.color style="width: 235px;border-radius: 8%">
       <div>
-      <div>{{note.title}}</div>
-      <div style="margin-top: 4%">{{note.description}}</div>
+        <img src="../../../assets/images/pin.svg" (click)="pin(note)" style="margin-left: 87%"/>
+        </div>
+      <div style="width: 235px;word-wrap: break-word;">
+      <div  (click)="openDialog(note)">{{note.title}}
+      </div>
+      <div style="margin-top: 4%"  (click)="openDialog(note)">{{note.description}}</div>
       <div class="icon" style="margin-top: 4%">
       <app-note-icons [notes]='note'></app-note-icons>
       </div>

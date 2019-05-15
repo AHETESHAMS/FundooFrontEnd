@@ -1,6 +1,7 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-around center"> 
   <div *ngFor="let note of notes" style="margin-top: 5%">
     <mat-card [style.background-color]=note.color>
+        <img src="../../../assets/images/pin.svg" (click)="pin(note)" style="margin-left: 87%"/>
       <div>
       <div>{{note.title}}</div>
       <div style="margin-top: 4%">{{note.description}}</div>

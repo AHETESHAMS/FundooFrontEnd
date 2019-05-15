@@ -43,16 +43,43 @@ export class NoteService {
    console.log("deleteNotes="+notes);
    return this.http.put("http://localhost:8080/trash?token="+localStorage.getItem('token')+"&noteId="+notes,null);
  }
+ archiveNote(notes:any)
+ {
+    return this.http.put("http://localhost:8080/archive?token="+localStorage.getItem('token')+"&noteId="+notes,null);
+ }
  getAllTrashedNotes()
  {
    return this.http.get("http://localhost:8080/getalltrashednotes?token="+localStorage.getItem('token'));
  }
  getAllPinnedNotes()
  {
-   return this.http.get("http://localhost:8080/getallpinednotes?token="+localStorage.getItem('token'));
+    console.log("inside service");
+    return this.http.get("http://localhost:8080/getallpinednotes?token="+localStorage.getItem('token'));
  }
  getAllArchivedNotes()
  {
    return this.http.get("http://localhost:8080/getallarchivednotes?token="+localStorage.getItem('token'));
+ }
+ deleteNotePermanently(noteId:any)
+ {
+    console.log("inside delete note permanently",noteId);
+    return this.http.put("http://localhost:8080/deletenotepermanently?token="+localStorage.getItem('token')+"&noteId="+noteId,null);
+ }
+ restoreNote(noteId:any)
+ {  
+  console.log("inside restore note",noteId);
+  return this.http.put("http://localhost:8080/trash?token="+localStorage.getItem('token')+"&noteId="+noteId,null);
+ }
+ pinNote(noteId:any)
+ {
+  console.log("inside pin note",noteId);
+  return this.http.put("http://localhost:8080/pin?token="+localStorage.getItem('token')+"&noteId="+noteId,null);
+ }
+ updateNote(noteDto:any,noteId:any)
+ {
+   console.log(noteId);
+   console.log(noteDto.title);
+   console.log(noteDto.description);
+   return this.http.put("http://localhost:8080/updatenote?token="+localStorage.getItem('token')+"&noteId="+noteId,noteDto);
  }
 }

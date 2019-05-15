@@ -16,4 +16,12 @@ export class ArchiveComponent implements OnInit {
         this.notes = response;
     });
   }
+  pin(note:any)
+  {
+    console.log("fdasfds pin"+note);
+    this.httpUser.pinNote(note.id).subscribe((response:any)=>
+    {
+      console.log(response);
+    }); 
+  }
 }

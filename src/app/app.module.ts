@@ -21,6 +21,9 @@ import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.co
 import { TrashComponent } from './component/trash/trash.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { PinComponent } from './component/pin/pin.component';
+import { TrashMoreComponentComponent } from './component/trash-more-component/trash-more-component.component';
+import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
+
 
 
 
@@ -37,7 +40,9 @@ import { PinComponent } from './component/pin/pin.component';
     GetAllNotesComponent,
     TrashComponent,
     ArchiveComponent,
-    PinComponent
+    PinComponent,
+    TrashMoreComponentComponent,
+    DialogBoxComponent,
    
    
     

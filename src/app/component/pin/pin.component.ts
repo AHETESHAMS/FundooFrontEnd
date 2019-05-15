@@ -16,4 +16,16 @@ export class PinComponent implements OnInit {
         this.notes = response;
     });
   }
+  pin(note:any)
+  {
+    console.log("pin"+note.id);
+    this.httpUser.pinNote(note.id).subscribe((response:any)=>
+    {
+      console.log(response);
+    }); 
+  }
+  updateNote()
+  {
+    console.log("clicked");
+  }
 }

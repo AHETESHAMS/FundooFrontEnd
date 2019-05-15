@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
@@ -11,6 +11,9 @@ import { GetAllNotesComponent } from './component/get-all-notes/get-all-notes.co
 import { TrashComponent } from './component/trash/trash.component';
 import { PinComponent } from './component/pin/pin.component';
 import { ArchiveComponent } from './component/archive/archive.component';
+import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
+import { AuthService } from './auth.service';
+
 const routes: Routes = [
   {
     path:'register',children:[
@@ -33,8 +36,27 @@ const routes: Routes = [
       component:SetPasswordComponent
   },
   {
-    path: 'dashboard',
-    component:DashboardComponent
+    canActivate : [AuthService],
+    path: 'dashboard',component:DashboardComponent,
+    children:[
+      {
+        path: '',
+        component:GetAllNotesComponent
+      },
+      {
+        path: 'note',
+        component:GetAllNotesComponent
+      },
+      {
+        path:'trash',
+        component:TrashComponent
+      },
+      {
+        path:'archive',
+        component:ArchiveComponent
+      }
+    ]
+    
   },
   {
     path:'addNote',
@@ -44,14 +66,7 @@ const routes: Routes = [
     path:'noteIcons',
     component:NoteIconsComponent
   },
-  {
-    path: 'getAllNotes',
-    component:GetAllNotesComponent
-  },
-  {
-    path:'trash',
-    component: TrashComponent
-  },
+  
   {
     path:'pin',
     component:PinComponent
@@ -59,6 +74,10 @@ const routes: Routes = [
   {
     path:'archive',
     component:ArchiveComponent
+  },
+  {
+    path:'dialogBox',
+    component:DialogBoxComponent
   }
 ];
 

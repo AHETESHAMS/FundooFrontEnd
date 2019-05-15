@@ -19,11 +19,11 @@
     <div>
       <input [(ngModel)]="noteDto.title" matInput placeholder="Title" autocomplete="off" style=" outline: none; border: none;font-size: 20px;" />
     </div>
-    <div>
+    <div style="margin-top: 4%">
       <input [(ngModel)]="noteDto.description" matInput placeholder="Take a Note" autocomplete="off" style=" outline: none; border: none;" />
     </div>
 
-    <div>
+    <div style="margin-top: 3%">
       <app-note-icons></app-note-icons>
       <button mat-button (click)="createNote()">Close</button>
     </div>

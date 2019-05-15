@@ -1,0 +1,10 @@
+<button mat-icon-button [matMenuTriggerFor]="more">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #more="matMenu">
+      <button mat-menu-item (click)="deleteNotePermanently()">
+          <span>Delete Forever</span>
+      </button>
+      <button mat-menu-item (click)="restoreNote()">
+          <span>Restore</span>
+      </button>

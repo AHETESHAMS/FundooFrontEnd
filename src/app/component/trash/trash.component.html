@@ -1,11 +1,12 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-around center"> 
   <div *ngFor="let note of notes" style="margin-top: 5%">
-    <mat-card [style.background-color]=note.color>
-      <div>
+    <mat-card [style.background-color]=note.color style="width: 235px;">
+      <div style="width: 235px;word-wrap: break-word;">
       <div>{{note.title}}</div>
       <div style="margin-top: 4%">{{note.description}}</div>
       <div class="icon" style="margin-top: 4%">
-      <app-note-icons [notes]='note'></app-note-icons>
+          <app-trash-more-component [notes]='note'></app-trash-more-component>
+      <!-- <app-note-icons [notes]='note'></app-note-icons> -->
       </div>
       </div>
     </mat-card>
