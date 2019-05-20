@@ -11,7 +11,7 @@ import {NoteDto} from 'src/app/model/note.noteDto.model'
 })
 export class DialogBoxComponent implements OnInit {
   noteDto = new NoteDto();
-  constructor( @Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<DialogBoxComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<DialogBoxComponent>) { }
   note: any;
   ngOnInit() {
   }

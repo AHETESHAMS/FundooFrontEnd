@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {NoteService} from 'src/app/Service/note.service';
 import { from } from 'rxjs';
+import { CollaboratorDialogBoxComponent } from '../collaborator-dialog-box/collaborator-dialog-box.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 @Component({
   selector: 'app-note-icons',
   templateUrl: './note-icons.component.html',
@@ -8,7 +10,7 @@ import { from } from 'rxjs';
 })
 export class NoteIconsComponent implements OnInit {
   @Input() notes:any;
-  constructor(private httpUser: NoteService) {
+  constructor(private httpUser: NoteService, private dialog:MatDialog) {
    
    }
    colors:any;
@@ -76,5 +78,15 @@ export class NoteIconsComponent implements OnInit {
     
   });
  }
-   
+ collaborator(): void {
+  const dialogRef = this.dialog.open(CollaboratorDialogBoxComponent, {
+    width: '600px',
+    minHeight: '200px',
+    data: this.notes
+  });
+  // console.log(note.id);
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+  });
+}
 }

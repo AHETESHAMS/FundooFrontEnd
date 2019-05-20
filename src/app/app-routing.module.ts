@@ -13,6 +13,7 @@ import { PinComponent } from './component/pin/pin.component';
 import { ArchiveComponent } from './component/archive/archive.component';
 import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
 import { AuthService } from './auth.service';
+import { LabelDialogBoxComponent } from './component/label-dialog-box/label-dialog-box.component';
 
 const routes: Routes = [
   {
@@ -78,6 +79,10 @@ const routes: Routes = [
   {
     path:'dialogBox',
     component:DialogBoxComponent
+  },
+  {
+    path: 'labeldialogbox',
+    component:LabelDialogBoxComponent
   }
 ];
 

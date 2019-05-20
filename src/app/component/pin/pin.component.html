@@ -3,9 +3,9 @@
         <mat-card [style.background-color]=note.color style="width: 235px; border-radius: 8%">
             <img src="../../../assets/images/pin2.svg" (click)="pin(note)" style="margin-left: 87%"/>
           <div style="width: 235px;word-wrap: break-word;">
-          <div (click)="updateNote()">{{note.title}}
+          <div (click)="openDialog(note)">{{note.title}}
           </div>
-          <div style="margin-top: 4%" (click)="updateNote()">{{note.description}}</div>
+          <div style="margin-top: 4%" (click)="openDialog(note)">{{note.description}}</div>
           <div class="icon" style="margin-top: 4%">
           <app-note-icons [notes]='note'></app-note-icons>
           </div>

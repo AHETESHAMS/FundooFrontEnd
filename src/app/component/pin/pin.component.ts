@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NoteService} from 'src/app/Service/note.service';
+import {DialogBoxComponent} from 'src/app/component/dialog-box/dialog-box.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 @Component({
   selector: 'app-pin',
   templateUrl: './pin.component.html',
@@ -8,7 +10,7 @@ import {NoteService} from 'src/app/Service/note.service';
 export class PinComponent implements OnInit {
 
   notes:any;
-  constructor(private httpUser: NoteService){}
+  constructor(private httpUser: NoteService, public dialog: MatDialog){}
   ngOnInit() {
     this.httpUser.getAllPinnedNotes().subscribe((response: any)=>
     {
@@ -24,8 +26,15 @@ export class PinComponent implements OnInit {
       console.log(response);
     }); 
   }
-  updateNote()
-  {
-    console.log("clicked");
+  openDialog(note:any): void {
+    const dialogRef = this.dialog.open(DialogBoxComponent, {
+      width: '600px',
+      data: note
+    });
+    // console.log(note.id);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
   }
 }

@@ -23,6 +23,8 @@ import { ArchiveComponent } from './component/archive/archive.component';
 import { PinComponent } from './component/pin/pin.component';
 import { TrashMoreComponentComponent } from './component/trash-more-component/trash-more-component.component';
 import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
+import { LabelDialogBoxComponent } from './component/label-dialog-box/label-dialog-box.component';
+import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-box/collaborator-dialog-box.component';
 
 
 
@@ -43,6 +45,8 @@ import { DialogBoxComponent } from './component/dialog-box/dialog-box.component'
     PinComponent,
     TrashMoreComponentComponent,
     DialogBoxComponent,
+    LabelDialogBoxComponent,
+    CollaboratorDialogBoxComponent,
    
    
     
@@ -58,6 +62,7 @@ import { DialogBoxComponent } from './component/dialog-box/dialog-box.component'
     HttpClientModule
   ],
   providers: [UserService],
+  entryComponents:[CollaboratorDialogBoxComponent, LabelDialogBoxComponent, DialogBoxComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

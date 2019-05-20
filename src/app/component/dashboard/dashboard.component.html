@@ -69,8 +69,15 @@
         <a mat-list-item>
           <mat-icon matPrefix>notifications_none</mat-icon>Reminder
         </a>
-
+        <hr/>
         <label style="font-size: 80%;margin-left: 8%;">LABELS</label>
+        <div *ngFor="let label of labels">
+          <a mat-list-item>
+              <mat-icon matPrefix>label</mat-icon>{{label.name}}</a>
+          </div>
+        <a mat-list-item (click)="openDialog()">
+            <mat-icon matPrefix>edit</mat-icon>Edit
+          </a>
         <a mat-list-item [routerLink]="['archive']">
           <mat-icon matPrefix>archive_outline</mat-icon>Archive
         </a>
@@ -80,7 +87,7 @@
 
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content style="width: 95%;height: 100%;">
 
       <router-outlet></router-outlet>
 

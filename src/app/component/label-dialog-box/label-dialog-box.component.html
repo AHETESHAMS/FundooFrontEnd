@@ -1,0 +1,22 @@
+<div>
+ <div>
+<h5>Edit labels</h5>
+<div>
+    <button mat-icon-button><mat-icon>clear</mat-icon></button>
+<input mat-Input placeholder="crate new label" [(ngModel)]="labelDto.name" style="width:66%;border: none;outline-width:0"/>
+<button mat-icon-button (click)="createLabel()"><mat-icon>done</mat-icon></button>
+</div>
+<div *ngFor="let label of labels">
+    <mat-form-field class="example-full-width">
+      <div>
+            <button mat-icon-button (click)="deleteLabel(label)"> <mat-icon style="margin-top: 35%;">delete</mat-icon></button>
+            <input matInput [(ngModel)]= "label.name" value="{{label.name}}" style="width:55%;">
+            <button mat-icon-button (click)="updateLabel(label)"><mat-icon  style="margin-top: 35%">done</mat-icon></button>
+       </div> 
+    </mat-form-field>
+</div>
+<div>
+<hr/>
+<button mat-button (click)="done()" style="margin-left:70%">Done</button>
+</div>
+</div>
