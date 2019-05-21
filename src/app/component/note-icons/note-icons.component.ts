@@ -89,4 +89,5 @@ export class NoteIconsComponent implements OnInit {
     console.log('The dialog was closed');
   });
 }
+
 }

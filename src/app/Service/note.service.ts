@@ -89,7 +89,7 @@ export class NoteService {
  }
  collaborateNote(note:any, collaboratedUserEmailId:any)
  {
-    console.log("Inside collaborator service add collaborator");
-    return this.http.post("http://localhost:8080/addcollaborator?token="+localStorage.getItem('token')+"&emailId="+localStorage.getItem('emailId')+"&noteId="+note.id,null);
+    console.log("Inside collaborator service add collaborator=>"+ collaboratedUserEmailId.emailId);
+    return this.http.post("http://localhost:8080/addcollaborator?token="+localStorage.getItem('token')+"&emailId="+collaboratedUserEmailId.emailId+"&noteId="+note.id,null);
  }
 }

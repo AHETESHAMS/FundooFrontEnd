@@ -25,10 +25,31 @@ export class CollaboratorDialogBoxComponent implements OnInit {
   }
   collaborate()
   {
-     console.log(this.data.id);
-     this.httpCollaborator.collaborateNote(this.data,this.collaboratedUserEmailId.emailId).subscribe((response:any)=> { 
-      this.snackbar.open(response.message,'undo' ,{duration:5000});
-     })
+     if(this.collaboratedUserEmailId.emailId == null)
+     {
+      this.snackbar.open('Please fill email','undo' ,{duration:5000});
+     }
+     else
+     {
+        console.log(this.collaboratedUserEmailId.emailId);
+        this.httpCollaborator.collaborateNote(this.data,this.collaboratedUserEmailId).subscribe((response:any)=> { 
+          this.snackbar.open(response.message,'undo' ,{duration:5000});
+        })
+  }  
+  }
+  SaveCollaborator()
+  {
+    if(this.collaboratedUserEmailId.emailId == null)
+    {
+     this.snackbar.open('Please fill email','undo' ,{duration:5000});
+    }
+    else
+    {
+       console.log(this.collaboratedUserEmailId.emailId);
+       this.httpCollaborator.collaborateNote(this.data,this.collaboratedUserEmailId).subscribe((response:any)=> { 
+         this.snackbar.open(response.message,'undo' ,{duration:5000});
+      })
+    }  
   }
 }
 

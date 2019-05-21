@@ -29,6 +29,7 @@ import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,7 @@ import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-
     TrashMoreComponentComponent,
     DialogBoxComponent,
     LabelDialogBoxComponent,
-    CollaboratorDialogBoxComponent,
+    CollaboratorDialogBoxComponent
    
    
     

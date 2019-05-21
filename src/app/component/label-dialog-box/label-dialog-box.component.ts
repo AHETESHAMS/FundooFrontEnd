@@ -20,7 +20,7 @@ export class LabelDialogBoxComponent implements OnInit {
     {
         console.log(response);
         this.labels = response;
-        console.log(this.labels);
+        console.log("Label inside labeldialog"+this.labels);
     });
   }
 createLabel()
