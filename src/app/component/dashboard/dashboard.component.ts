@@ -26,6 +26,8 @@ export class DashboardComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   labels:any;
+  token:string = localStorage.getItem('token');
+  source:string = "";
   ngOnInit() {
 
     this.httpLabel.getAllLabels().subscribe((response: any)=>

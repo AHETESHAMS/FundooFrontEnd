@@ -42,8 +42,9 @@
         </div>
 
         <div>
-
-          <button style="margin-left:333%" mat-mini-fab color="primary" [matMenuTriggerFor]="menu">A</button>
+          <button mat-icon-button [matMenuTriggerFor]="menu" style="margin-left: 355%">
+          <img mat-card-avatar src= "http://localhost:8080/getUploadedImage?token={{token}}">
+        </button>
           <mat-menu #menu="matMenu">
             <mat-card fxLayout="row" fxLayoutAlign="space-around center">
               <button mat-menu-item routerLink="/register">Add account</button>
