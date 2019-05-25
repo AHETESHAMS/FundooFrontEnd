@@ -1,0 +1,15 @@
+<div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="40px">
+    <div *ngFor="let collaboratedNote of collaboratedNotes" style="margin-top: 5%">
+        <mat-card  [style.background-color]=collaboratedNote.color style="width: 235px; border-radius: 8%">
+            <img src="../../../assets/images/pin.svg" (click)="pin(note)" style="margin-left: 87%"/>
+          <div style="width: 235px;word-wrap: break-word;"> 
+          <div (click)="openDialog(note)">{{collaboratedNote.title}}
+          </div>
+          <div style="margin-top: 4%" (click)="openDialog(note)">{{collaboratedNote.description}}</div>
+          <div class="icon" style="margin-top: 4%">
+          <app-note-icons [notes]='note'></app-note-icons> 
+          </div>
+          </div>
+        </mat-card>
+        </div>  
+  </div>

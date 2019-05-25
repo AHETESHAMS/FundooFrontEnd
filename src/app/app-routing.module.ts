@@ -14,6 +14,7 @@ import { ArchiveComponent } from './component/archive/archive.component';
 import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
 import { AuthService } from './auth.service';
 import { LabelDialogBoxComponent } from './component/label-dialog-box/label-dialog-box.component';
+import { GetAllCollaboratedNotesComponent } from './component/get-all-collaborated-notes/get-all-collaborated-notes.component';
 
 const routes: Routes = [
   {
@@ -83,6 +84,10 @@ const routes: Routes = [
   {
     path: 'labeldialogbox',
     component:LabelDialogBoxComponent
+  },
+  {
+    path:'getallcollaboratednotes',
+    component:GetAllCollaboratedNotesComponent
   }
 ];
 

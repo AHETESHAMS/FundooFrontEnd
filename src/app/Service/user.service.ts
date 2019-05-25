@@ -38,4 +38,18 @@ export class UserService {
   verifyUser(token:string):Observable<any>{
     return this.http.get("http://localhost:8080/user/"+token)
   }
+ 
+  uploadImage(file:File)
+  {
+   
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+    console.log("Joti ",file);
+    
+    console.log(formData);
+    
+    
+    
+    return this.http.post("http://localhost:8080/uploadImage?token="+localStorage.getItem('token'), formData);
+  }
 }

@@ -85,7 +85,7 @@ export class NoteService {
  getAllCollaboratedNotes()
  {
    console.log("Inside collaborator service get all");
-   return this.http.get("http://localhost:8080/getallnotes?token="+localStorage.getItem('token'));
+   return this.http.get("http://localhost:8080/getcollaboratednotes?token="+localStorage.getItem('token')+"&emailId="+localStorage.getItem('emailId'));
  }
  collaborateNote(note:any, collaboratedUserEmailId:any)
  {

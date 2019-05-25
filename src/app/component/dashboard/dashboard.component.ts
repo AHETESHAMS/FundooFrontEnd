@@ -6,6 +6,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {LabelDialogBoxComponent} from 'src/app/component/label-dialog-box/label-dialog-box.component';
 import {LabelService} from 'src/app/Service/label.service'
 import { LabelDto } from 'src/app/model/label.labelDto';
+import { ProfileDialogBoxComponent } from '../profile-dialog-box/profile-dialog-box.component';
+import { UserService } from 'src/app/Service/user.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -19,7 +21,7 @@ export class DashboardComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(private httpLabel:LabelService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,  private router:Router, 
+  constructor(private httpUser: UserService, private httpLabel:LabelService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,  private router:Router, 
     private dialog:MatDialog) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -57,5 +59,23 @@ export class DashboardComponent implements OnDestroy {
       console.log('The dialog was closed');
       
     });
+}
+profileDialogBox(): void {
+  const dialogRef = this.dialog.open(ProfileDialogBoxComponent, {
+  width: '900px',
+   height:'600px'
+  });
+  // console.log(note.id);
+  dialogRef.afterClosed().subscribe(image => {
+   
+    if(image!=null)
+    {
+      console.log('This is My Image of fundoo');
+          this.httpUser.uploadImage(image.file).subscribe((response:any)=>{
+              console.log("dashboard image upload");
+          });
+    }
+    
+  });
 }
 }

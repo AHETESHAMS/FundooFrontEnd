@@ -3,7 +3,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar} from '@angular/ma
 import { importType } from '@angular/compiler/src/output/output_ast';
 import {NoteService} from 'src/app/Service/note.service';
 import { FormControl } from '@angular/forms';
-import {NoteDto} from 'src/app/model/note.noteDto.model'
+import {NoteDto} from 'src/app/model/note.noteDto.model';
+
 @Component({
   selector: 'app-dialog-box',
   templateUrl: './dialog-box.component.html',

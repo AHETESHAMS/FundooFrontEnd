@@ -25,7 +25,10 @@ import { TrashMoreComponentComponent } from './component/trash-more-component/tr
 import { DialogBoxComponent } from './component/dialog-box/dialog-box.component';
 import { LabelDialogBoxComponent } from './component/label-dialog-box/label-dialog-box.component';
 import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-box/collaborator-dialog-box.component';
-
+import { ProfileDialogBoxComponent } from './component/profile-dialog-box/profile-dialog-box.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import { GetAllCollaboratedNotesComponent } from './component/get-all-collaborated-notes/get-all-collaborated-notes.component';
+import { DataService } from './Service/data-service.service';
 
 
 
@@ -47,7 +50,9 @@ import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-
     TrashMoreComponentComponent,
     DialogBoxComponent,
     LabelDialogBoxComponent,
-    CollaboratorDialogBoxComponent
+    CollaboratorDialogBoxComponent,
+    ProfileDialogBoxComponent,
+    GetAllCollaboratedNotesComponent
    
    
     
@@ -60,10 +65,11 @@ import { CollaboratorDialogBoxComponent } from './component/collaborator-dialog-
     BrowserAnimationsModule,
     DemoMaterialModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ImageCropperModule
   ],
-  providers: [UserService],
-  entryComponents:[CollaboratorDialogBoxComponent, LabelDialogBoxComponent, DialogBoxComponent],
+  providers: [UserService,DataService],
+  entryComponents:[CollaboratorDialogBoxComponent, ProfileDialogBoxComponent,LabelDialogBoxComponent, DialogBoxComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

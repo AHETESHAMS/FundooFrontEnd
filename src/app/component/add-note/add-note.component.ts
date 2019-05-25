@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NoteDto} from 'src/app/model/note.noteDto.model';
 import { MatSnackBar } from '@angular/material';
 import {NoteService} from 'src/app/Service/note.service';
+import {DataService} from 'src/app/Service/data-service.service';
 @Component({
   selector: 'app-add-note',
   templateUrl: './add-note.component.html',
@@ -11,9 +12,7 @@ export class AddNoteComponent implements OnInit {
   noteDto = new NoteDto();
   private showAddNote: boolean;
   
-  constructor(private httpUser: NoteService,
-
-    private snackbar:MatSnackBar) { }
+  constructor(private httpUser: NoteService,private snackbar:MatSnackBar, private dataService:DataService) { }
  
   ngOnInit() {
   }

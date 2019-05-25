@@ -46,9 +46,14 @@
           <img mat-card-avatar src= "http://localhost:8080/getUploadedImage?token={{token}}">
         </button>
           <mat-menu #menu="matMenu">
-            <mat-card fxLayout="row" fxLayoutAlign="space-around center">
+            <mat-card fxLayout="column" fxLayoutAlign="start start">
+              <div style="margin-left: 6%">
+              <img mat-card-avatar (click)="profileDialogBox()" src= "http://localhost:8080/getUploadedImage?token={{token}}">
+              </div>
+              <div fxLayout="row" fxLayoutAlign="space-around center">
               <button mat-menu-item routerLink="/register">Add account</button>
               <button mat-menu-item (click)="signOut()">Sign out</button>
+              </div>
             </mat-card>
           </mat-menu>
         </div>
