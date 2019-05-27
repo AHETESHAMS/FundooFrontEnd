@@ -14,7 +14,7 @@ export class GetAllCollaboratedNotesComponent implements OnInit {
   ngOnInit() {
     this.httpNote.getAllCollaboratedNotes().subscribe((response: any)=>
     {
-        console.log(response);
+        console.log("Its get all collaborated notes"+response);
         this.collaboratedNotes = response;
     });
   }

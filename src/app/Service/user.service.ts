@@ -47,9 +47,6 @@ export class UserService {
     console.log("Joti ",file);
     
     console.log(formData);
-    
-    
-    
     return this.http.post("http://localhost:8080/uploadImage?token="+localStorage.getItem('token'), formData);
   }
 }

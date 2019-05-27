@@ -12,20 +12,21 @@ export class GetAllNotesComponent implements OnInit {
   notes:any;
   name: string;
   collaboratedNotes:any;
+  collaboratedUser:any;
   constructor(private httpUser: NoteService, public dialog: MatDialog){}
  
   ngOnInit() {
     this.httpUser.getAllNotes().subscribe((response: any)=>
     {
-        console.log("All Notes Response= "+response);
+        console.log("Ahetesham All Notes Response= "+response);
         this.notes = response;
     });
    
-    // this.httpUser.getAllCollaboratedNotes().subscribe((collaboratedNotesResponse: any)=>
-    // {
-    //     console.log("Collaborated Notes Response= "+collaboratedNotesResponse);
-    //     this.collaboratedNotes = collaboratedNotesResponse;
-    // });
+    this.httpUser.getAllCollaboratedNotes().subscribe((collaboratedNotesResponse: any)=>
+    {
+        console.log("Ahetesham Collaborated Notes Response= "+collaboratedNotesResponse);
+        this.collaboratedNotes = collaboratedNotesResponse;
+    });
   }
   pin(note:any)
   {

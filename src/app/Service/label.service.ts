@@ -27,4 +27,10 @@ export class LabelService {
    console.log("update service"+labelDto.name);
    return this.http.put("http://localhost:8080/updatelabel?token="+localStorage.getItem('token')+"&labelId="+label.id,labelDto.name);
  }
+//  addLabelToNote()
+//  {
+//    console.log("add Label To Note Servicce");
+//    return this.http.post("http://localhost:8080/addlabeltonote?token="+"&noteId=",null);
+   
+//  }
 }

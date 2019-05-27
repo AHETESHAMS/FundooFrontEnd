@@ -1,12 +1,14 @@
 
-<h3 style="font-weight:normal">Collaborator</h3>
+<!-- <h3 style="font-weight:normal">Collaborator</h3>
 <div fxLayout="row" fxLayoutAlign="start start">
   <button mat-mini-fab>A</button>
 <div style="margin-left: 2%">{{name}} 
   <div>{{userEmailId}}</div>
 </div>
-<div></div>
- </div> 
+<div *ngFor="let collaboratedUser of collaboratedUsers" fxLayout="row" fxLayoutAlign="start start">
+  <button mat-mini-fab>a</button>
+      <div>{{collaboratedUser.emailId}}</div> 
+  </div> 
  <div style="margin-top: 2%">
   <button mat-icon-button><mat-icon>person_add</mat-icon></button>
   <input matInput [(ngModel)]="collaboratedUserEmailId.emailId" placeholder="person or email to share with" style="border: none; outline-width: 0;margin-left: 2%"/>
@@ -15,4 +17,30 @@
   <div>
   <button mat-button  style="margin-left: 70%">Cancel</button>
   <button mat-button style="margin-left: 2%">Save</button>
-</div>
+</div> -->
+<h3 style="font-weight:normal">Collaborator</h3>
+<div  fxLayout="column" fxLayoutAlign="space-between start" >
+  <div fxLayout="row">
+    <button mat-mini-fab>A</button>
+    <div style="margin-left: 2%">{{name}} {{userEmailId}}</div>
+    </div>
+    <div *ngFor="let collaboratedUser of collaboratedUsers">
+      <div fxLayout="row" style="margin-top: 12px">
+      <button mat-mini-fab>a</button>
+      <div fxLayout="row" style="margin-left: 2%">
+      {{collaboratedUser.name}}
+      {{collaboratedUser.emailId}}
+        </div>
+        <button mat-icon-button (click)="removeCollaborator(collaboratedUser.emailId)" style="margin-left: 4%"><mat-icon>clear</mat-icon></button>
+    </div>
+    </div>
+    <div fxLayout="row">
+        <button mat-icon-button><mat-icon>person_add</mat-icon></button>
+        <input matInput [(ngModel)]="collaboratedUserEmailId.emailId" placeholder="person or email to share with" style="border: none; outline-width: 0;margin-left: 2%"/>
+        <button mat-icon-button (click)="collaborate()" style="margin-left: 4%"><mat-icon>done</mat-icon></button>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end end" style="margin-left: 72%">       
+      <button mat-button  >Cancel</button>
+      <button mat-button >Save</button>
+   
+ </div>

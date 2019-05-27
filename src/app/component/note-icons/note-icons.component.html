@@ -11,7 +11,7 @@
   <button mat-menu-item (click)="deleteNote()">
       <span>Delete Note</span>
   </button>
-  <button mat-menu-item (click)="addLabelDialogBox()">
+  <button mat-menu-item [matMenuTriggerFor]="addLabelMenu">
       <span>Add Label</span>
     </button>
   <button mat-menu-item>
@@ -24,6 +24,13 @@
     <span>Show checkboxes</span>
   </button>
 </mat-menu>
+<mat-menu #addLabelMenu="matMenu">
+<div *ngFor="let label of labels">
+    <button mat-menu-item>
+        <span><mat-checkbox (click)="addLabelToNote()">{{label.name}}</mat-checkbox></span>
+      </button>
+      </div>
+  </mat-menu>
 
 <mat-menu #colors="matMenu" [overlapTrigger]="false">
     <ng-template matMenuContent let-note="note">

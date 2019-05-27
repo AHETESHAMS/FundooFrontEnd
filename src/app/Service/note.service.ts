@@ -92,4 +92,15 @@ export class NoteService {
     console.log("Inside collaborator service add collaborator=>"+ collaboratedUserEmailId.emailId);
     return this.http.post("http://localhost:8080/addcollaborator?token="+localStorage.getItem('token')+"&emailId="+collaboratedUserEmailId.emailId+"&noteId="+note.id,null);
  }
+ getAllCollaboratedUser(noteId:any)
+ {
+   console.log("Inside get all collaborated user service");
+   return this.http.get("http://localhost:8080/getcollaborateduser?token="+localStorage.getItem('token')+"&noteId="+noteId);
+ }
+ removeCollaborator(noteId:any, collaboratedUserEmailId:any)
+ {
+   console.log("remove collab service");
+   return this.http.put("http://localhost:8080/removecollaborator?token="+localStorage.getItem('token')+"&emailId="+collaboratedUserEmailId+"&noteId="+noteId,null);
+   
+ }
 }

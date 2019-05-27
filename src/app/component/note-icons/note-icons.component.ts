@@ -3,6 +3,7 @@ import {NoteService} from 'src/app/Service/note.service';
 import { from } from 'rxjs';
 import { CollaboratorDialogBoxComponent } from '../collaborator-dialog-box/collaborator-dialog-box.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {LabelService} from 'src/app/Service/label.service';
 @Component({
   selector: 'app-note-icons',
   templateUrl: './note-icons.component.html',
@@ -10,12 +11,19 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class NoteIconsComponent implements OnInit {
   @Input() notes:any;
-  constructor(private httpUser: NoteService, private dialog:MatDialog) {
+  constructor(private httpUser: NoteService, private httpLabel:LabelService,private dialog:MatDialog) {
    
    }
+   labels:any;
    colors:any;
   ngOnInit() {
 
+    this.httpLabel.getAllLabels().subscribe((response: any)=>
+    {
+        console.log(response);
+        this.labels = response;
+        console.log(this.labels);
+    });
   }
   colorCode= [
     [
@@ -89,5 +97,8 @@ export class NoteIconsComponent implements OnInit {
     console.log('The dialog was closed');
   });
 }
-
+addLabelToNote()
+{
+  console.log("add Label to note"+this.notes);
+}
 }
