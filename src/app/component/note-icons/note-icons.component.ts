@@ -4,6 +4,8 @@ import { from } from 'rxjs';
 import { CollaboratorDialogBoxComponent } from '../collaborator-dialog-box/collaborator-dialog-box.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {LabelService} from 'src/app/Service/label.service';
+import { LabelDto } from 'src/app/model/label.labelDto';
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-note-icons',
   templateUrl: './note-icons.component.html',
@@ -11,11 +13,12 @@ import {LabelService} from 'src/app/Service/label.service';
 })
 export class NoteIconsComponent implements OnInit {
   @Input() notes:any;
-  constructor(private httpUser: NoteService, private httpLabel:LabelService,private dialog:MatDialog) {
+  constructor(private httpUser: NoteService, private httpLabel:LabelService,private dialog:MatDialog, private snackbar:MatSnackBar) {
    
    }
    labels:any;
    colors:any;
+   labelDto = new LabelDto();
   ngOnInit() {
 
     this.httpLabel.getAllLabels().subscribe((response: any)=>
@@ -23,7 +26,7 @@ export class NoteIconsComponent implements OnInit {
         console.log(response);
         this.labels = response;
         console.log(this.labels);
-    });
+    }); 
   }
   colorCode= [
     [
@@ -97,8 +100,13 @@ export class NoteIconsComponent implements OnInit {
     console.log('The dialog was closed');
   });
 }
-addLabelToNote()
+addLabelToNote(label:any)
 {
   console.log("add Label to note"+this.notes);
+  console.log("labelID"+label.name);
+  this.labelDto.name=label.name;
+  this.httpLabel.addLabelToNote(this.labelDto,this.notes.id).subscribe((response:any)=> { 
+    this.snackbar.open(response.message,'undo' ,{duration:5000});
+ })
 }
 }

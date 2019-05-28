@@ -25,9 +25,10 @@
   </button>
 </mat-menu>
 <mat-menu #addLabelMenu="matMenu">
+    <h5 style=" font-weight: normal;">Add Label</h5>
 <div *ngFor="let label of labels">
-    <button mat-menu-item>
-        <span><mat-checkbox (click)="addLabelToNote()">{{label.name}}</mat-checkbox></span>
+ <button mat-menu-item>
+        <span><mat-checkbox (click)="addLabelToNote(label)">{{label.name}}</mat-checkbox></span>
       </button>
       </div>
   </mat-menu>

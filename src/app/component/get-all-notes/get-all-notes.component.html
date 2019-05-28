@@ -2,40 +2,47 @@
 <h5 style="margin-left: 35%; font-weight: normal;">PINNED</h5>
 <div>
   <app-pin></app-pin>
-</div>  
-  <h5 style="margin-left: 35%;  font-weight: normal;">OTHERS</h5>  
-<div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="40px"> 
+</div>
+<h5 style="margin-left: 35%;  font-weight: normal;">OTHERS</h5>
+<div fxLayout="row wrap" fxLayoutAlign="center" fxLayoutGap="40px">
   <div *ngFor="let note of notes" style="margin-top: 5%;">
     <mat-card [style.background-color]=note.color style="width: 235px;border-radius: 8%">
       <div>
-        <img src="../../../assets/images/pin.svg" (click)="pin(note)" style="margin-left: 87%"/>
-        </div>
+        <img src="../../../assets/images/pin.svg" (click)="pin(note)" style="margin-left: 87%" />
+      </div>
       <div style="width: 235px;word-wrap: break-word;">
-      <div  (click)="openDialog(note)">{{note.title}}
-      </div>
-      <div style="margin-top: 4%"  (click)="openDialog(note)">{{note.description}}</div>
-      <div class="icon" style="margin-top: 4%">
-      <app-note-icons [notes]='note'></app-note-icons>
-      </div>
+        <div (click)="openDialog(note)">{{note.title}}
+        </div>
+        <div style="margin-top: 4%" (click)="openDialog(note)">{{note.description}}</div>
+        <div fxLayout="row wrap" fxLayoutGap="3px">
+          <div *ngFor="let label of note.listLabel">
+            <mat-chip-list>
+              <mat-chip [style.background-color]=note.color style="margin-top: 10px">{{label.name}}<mat-icon matChipRemove (click)="removeLabelFromNote(note,label)">clear</mat-icon></mat-chip>
+            </mat-chip-list>
+          </div>
+        </div>
+        <div class="icon" style="margin-top: 4%">
+          <app-note-icons [notes]='note'></app-note-icons>
+        </div>
       </div>
     </mat-card>
-    </div>
-    <div *ngFor="let collaboratedNote of collaboratedNotes">
-        <mat-card [style.background-color]=collaboratedNote.color style="width: 235px;border-radius: 8%">
-            <div>
-              <img src="../../../assets/images/pin.svg" (click)="pin(note)" style="margin-left: 87%"/>
-              </div>
-            <div style="width: 235px;word-wrap: break-word;">
-            <div  (click)="openDialog(collaboratedNote)">{{collaboratedNote.title}}
-            </div>
-            <div style="margin-top: 4%"  (click)="openDialog(collaboratedNote)">{{collaboratedNote.description}}</div>
-            <div class="icon" style="margin-top: 4%">
-            <app-note-icons [notes]='note'></app-note-icons>
-            </div>
-            </div>
-          </mat-card>
-</div>
-<!-- <app-get-all-collaborated-notes></app-get-all-collaborated-notes> -->
-<!-- fxLayout="row" fxLayoutAlign="space-around center" -->
-<!-- <h1>{{note.title}}</h1> -->
-<!-- Get All Collaborated Notes -->
+  </div>
+  <div *ngFor="let collaboratedNote of collaboratedNotes">
+    <mat-card [style.background-color]=collaboratedNote.color style="width: 235px;border-radius: 8%">
+      <div>
+        <img src="../../../assets/images/pin.svg" (click)="pin(note)" style="margin-left: 87%" />
+      </div>
+      <div style="width: 235px;word-wrap: break-word;">
+        <div (click)="openDialog(collaboratedNote)">{{collaboratedNote.title}}
+        </div>
+        <div style="margin-top: 4%" (click)="openDialog(collaboratedNote)">{{collaboratedNote.description}}</div>
+        <div class="icon" style="margin-top: 4%">
+          <app-note-icons [notes]='note'></app-note-icons>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <!-- <app-get-all-collaborated-notes></app-get-all-collaborated-notes> -->
+  <!-- fxLayout="row" fxLayoutAlign="space-around center" -->
+  <!-- <h1>{{note.title}}</h1> -->
+  <!-- Get All Collaborated Notes -->

@@ -27,10 +27,18 @@ export class LabelService {
    console.log("update service"+labelDto.name);
    return this.http.put("http://localhost:8080/updatelabel?token="+localStorage.getItem('token')+"&labelId="+label.id,labelDto.name);
  }
-//  addLabelToNote()
-//  {
-//    console.log("add Label To Note Servicce");
-//    return this.http.post("http://localhost:8080/addlabeltonote?token="+"&noteId=",null);
+ addLabelToNote(labelDto:any,noteId:any)
+ {
+   console.log("add Label To Note Servicce"+labelDto,noteId);
+   return this.http.post("http://localhost:8080/addlabeltonote?token="+localStorage.getItem('token')+"&noteId="+noteId,labelDto);
    
-//  }
+ }
+ getAllLebelsOfNote(noteId:any)
+ {
+   return this.http.get("http://localhost:8080/getalllabelsofnote?token="+localStorage.getItem('token')+"&noteId="+noteId);
+ }
+ removeLabelFromNote(noteId:any,labelId:any)
+ {
+   return this.http.put("http://localhost:8080/removelabelfromnote?token="+localStorage.getItem('token')+"&noteId="+noteId+"&labelId="+labelId,null);
+ }
 }
