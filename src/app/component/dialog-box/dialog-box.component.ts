@@ -4,6 +4,7 @@ import { importType } from '@angular/compiler/src/output/output_ast';
 import {NoteService} from 'src/app/Service/note.service';
 import { FormControl } from '@angular/forms';
 import {NoteDto} from 'src/app/model/note.noteDto.model';
+import { DataService } from 'src/app/Service/data-service.service';
 
 @Component({
   selector: 'app-dialog-box',
@@ -12,7 +13,7 @@ import {NoteDto} from 'src/app/model/note.noteDto.model';
 })
 export class DialogBoxComponent implements OnInit {
   noteDto = new NoteDto();
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<DialogBoxComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<DialogBoxComponent>, private dataService:DataService) { }
   note: any;
   ngOnInit() {
   }
@@ -24,6 +25,7 @@ updateNote()
   this.noteService.updateNote(this.noteDto,this.data.id).subscribe((response:any)=>
   {
     console.log("Response"+response);
+    this.dataService.changeMessage("Note Updated");
   }); ;
   
   this.dialogRef.close();

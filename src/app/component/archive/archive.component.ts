@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NoteService} from 'src/app/Service/note.service';
+import { DataService } from 'src/app/Service/data-service.service';
 @Component({
   selector: 'app-archive',
   templateUrl: './archive.component.html',
@@ -8,7 +9,7 @@ import {NoteService} from 'src/app/Service/note.service';
 export class ArchiveComponent implements OnInit {
 
   notes:any;
-  constructor(private httpUser: NoteService){}
+  constructor(private httpUser: NoteService, private dataService:DataService){}
   ngOnInit() {
     this.httpUser.getAllArchivedNotes().subscribe((response: any)=>
     {
@@ -22,6 +23,7 @@ export class ArchiveComponent implements OnInit {
     this.httpUser.pinNote(note.id).subscribe((response:any)=>
     {
       console.log(response);
+      this.dataService.changeMessage("Color Changed");
     }); 
   }
 }

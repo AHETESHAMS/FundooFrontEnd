@@ -1,16 +1,16 @@
 
-      <div>
+      <div [style.background-color]=data.color>
         <div>
           <img src="../../../assets/images/pin.svg" (click)="pin(note)" style="margin-left: 87%"/>
           </div>
         <div style="width: 235px;word-wrap: break-word;">
-          <input  type="text" [(ngModel)]="data.title" style="border:none; outline-width: 0; font-size: 115%"/>
-        <input  type="text" [(ngModel)]="data.description" style="border:none; outline-width: 0; margin-top: 6%;font-size: 90%;"/>
-        <div style="margin-top: 5%">
+          <input  type="text" [style.background-color]=data.color [(ngModel)]="data.title" style="border:none; outline-width: 0; font-size: 115%"/>
+        <input  type="text" [style.background-color]=data.color [(ngModel)]="data.description" style="border:none; outline-width: 0; margin-top: 6%;font-size: 90%;"/>
+        <div style="margin-top: 5%;">
             <app-note-icons></app-note-icons>
             <button mat-button (click)="updateNote()">Close</button>
         </div>
         </div>
      </div>
+ 
   
-   

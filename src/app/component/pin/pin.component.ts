@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NoteService} from 'src/app/Service/note.service';
 import {DialogBoxComponent} from 'src/app/component/dialog-box/dialog-box.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { DataService } from 'src/app/Service/data-service.service';
 @Component({
   selector: 'app-pin',
   templateUrl: './pin.component.html',
@@ -10,12 +11,13 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class PinComponent implements OnInit {
 
   notes:any;
-  constructor(private httpUser: NoteService, public dialog: MatDialog){}
+  constructor(private httpUser: NoteService, public dialog: MatDialog, private dataService:DataService){}
   ngOnInit() {
     this.httpUser.getAllPinnedNotes().subscribe((response: any)=>
     {
         console.log(response);
         this.notes = response;
+        this.dataService.changeMessage("All Pinned Notes");
     });
   }
   pin(note:any)
@@ -24,6 +26,7 @@ export class PinComponent implements OnInit {
     this.httpUser.pinNote(note.id).subscribe((response:any)=>
     {
       console.log(response);
+      this.dataService.changeMessage("Pinned");
     }); 
   }
   openDialog(note:any): void {

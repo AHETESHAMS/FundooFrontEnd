@@ -1,3 +1,4 @@
+<div *ngIf="!noteView">
 <app-add-note></app-add-note>
 <h5 style="margin-left: 35%; font-weight: normal;">PINNED</h5>
 <div>
@@ -17,9 +18,14 @@
         <div fxLayout="row wrap" fxLayoutGap="3px">
           <div *ngFor="let label of note.listLabel">
             <mat-chip-list>
-              <mat-chip [style.background-color]=note.color style="margin-top: 10px">{{label.name}}<mat-icon matChipRemove (click)="removeLabelFromNote(note,label)">clear</mat-icon></mat-chip>
+              <mat-chip style="margin-top: 10px;opacity:0.7">{{label.name}}<mat-icon matChipRemove (click)="removeLabelFromNote(note,label)">clear</mat-icon></mat-chip>
             </mat-chip-list>
           </div>
+        </div>
+        <div *ngIf="note.reminder!=null">
+          <mat-chip-list>
+            <mat-chip style="opacity: 0.7;margin-top: 3%"><mat-icon>schedule</mat-icon>{{note.reminder| date:'medium'}}<mat-icon matChipRemove (click)="removeReminder(note)">clear</mat-icon></mat-chip> 
+          </mat-chip-list>
         </div>
         <div class="icon" style="margin-top: 4%">
           <app-note-icons [notes]='note'></app-note-icons>
@@ -41,6 +47,7 @@
         </div>
       </div>
     </mat-card>
+  </div>
   </div>
   <!-- <app-get-all-collaborated-notes></app-get-all-collaborated-notes> -->
   <!-- fxLayout="row" fxLayoutAlign="space-around center" -->

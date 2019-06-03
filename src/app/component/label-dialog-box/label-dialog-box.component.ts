@@ -4,6 +4,7 @@ import { LabelDto } from 'src/app/model/label.labelDto';
 import { MatSnackBar } from '@angular/material';
 import { element } from '@angular/core/src/render3';
 import { NoteDto } from 'src/app/model/note.noteDto.model';
+import { DataService } from 'src/app/Service/data-service.service';
 @Component({
   selector: 'app-label-dialog-box',
   templateUrl: './label-dialog-box.component.html',
@@ -11,7 +12,7 @@ import { NoteDto } from 'src/app/model/note.noteDto.model';
 })
 export class LabelDialogBoxComponent implements OnInit {
 
-  constructor(private httpLabel:LabelService,  private snackbar:MatSnackBar) { }
+  constructor(private httpLabel:LabelService,  private snackbar:MatSnackBar, private dataService:DataService) { }
   labelDto = new LabelDto(); 
   labels:any;
   ngOnInit() {
@@ -36,6 +37,7 @@ createLabel()
     console.log("label");
     this.httpLabel.createLabel(this.labelDto).subscribe(data=>
       { this.snackbar.open(data.message,'undo' ,{duration:5000});
+      this.dataService.changeMessage(data.statusMessage);
     console.log(data)});
   } 
   
@@ -46,7 +48,9 @@ deleteLabel(label:any)
   console.log("Delete Label"+label.id);
   this.httpLabel.deleteLabel(label).subscribe(data=>
     { this.snackbar.open(data.message,'undo' ,{duration:5000});
+    this.dataService.changeMessage(data.statusMessage);
   console.log(data)});;
+  
 }
 updateLabel(label:any)
 {
@@ -62,6 +66,7 @@ updateLabel(label:any)
     console.log("inside update Label");
     this.httpLabel.updateLabel(this.labelDto,label).subscribe(data=>
       { this.snackbar.open(data.message,'undo' ,{duration:5000});
+      this.dataService.changeMessage(data.statusMessage);
     console.log(data)});
   }
 }

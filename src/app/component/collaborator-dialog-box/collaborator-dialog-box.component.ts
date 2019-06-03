@@ -4,6 +4,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { MatSnackBar } from '@angular/material';
 import {SendMail} from 'src/app/model/user.sendmail.model';
 import { log } from 'util';
+import { DataService } from 'src/app/Service/data-service.service';
 @Component({
   selector: 'app-collaborator-dialog-box',
   templateUrl: './collaborator-dialog-box.component.html',
@@ -11,7 +12,7 @@ import { log } from 'util';
 })
 export class CollaboratorDialogBoxComponent implements OnInit {
   @Input() note:any;
-  constructor( @Inject(MAT_DIALOG_DATA) public data: any,private httpCollaborator: NoteService, private snackbar:MatSnackBar) { }
+  constructor( @Inject(MAT_DIALOG_DATA) public data: any,private httpCollaborator: NoteService, private snackbar:MatSnackBar, dataService:DataService) { }
   collaboratedNotes:any;
   collaboratedUsers:any;
   collaboratedUserEmailId = new SendMail();
@@ -69,6 +70,8 @@ export class CollaboratorDialogBoxComponent implements OnInit {
     this.httpCollaborator.removeCollaborator(this.data.id, collaboratedUserEmailId).subscribe((response:any)=>
     {
       this.snackbar.open(response.message,'undo' ,{duration:5000});
+      console.log("Collaborator Removed");
+      
     });  
   }
 }

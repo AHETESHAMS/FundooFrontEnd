@@ -36,8 +36,8 @@
         </div>
 
         <div>
-          <button style="margin-left: 305%" mat-icon-button color="basic">
-            <mat-icon>grid_on</mat-icon>
+          <button (click)="changeView()" style="margin-left: 305%" mat-icon-button color="basic">
+            <mat-icon>view_agenda</mat-icon>
           </button>
         </div>
 
@@ -46,7 +46,7 @@
           <img mat-card-avatar src= "http://localhost:8080/getUploadedImage?token={{token}}">
         </button>
           <mat-menu #menu="matMenu">
-            <mat-card fxLayout="column" fxLayoutAlign="start start">
+            <div fxLayout="column" fxLayoutAlign="start start">
               <div style="margin-left: 6%">
               <img mat-card-avatar (click)="profileDialogBox()" src= "http://localhost:8080/getUploadedImage?token={{token}}">
               </div>
@@ -54,7 +54,7 @@
               <button mat-menu-item routerLink="/register">Add account</button>
               <button mat-menu-item (click)="signOut()">Sign out</button>
               </div>
-            </mat-card>
+            </div>
           </mat-menu>
         </div>
       </div>

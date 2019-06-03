@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef,OnDestroy} from '@angular/core';
 import { Router, Route, ActivatedRoute } from '@angular/router';
@@ -14,6 +14,7 @@ import { UserService } from 'src/app/Service/user.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnDestroy {
+  @Input() noteView:any;
   mobileQuery: MediaQueryList;
 
 
@@ -77,5 +78,10 @@ profileDialogBox(): void {
     }
     
   });
+}
+changeView()
+{
+  console.log("View="+this.noteView);
+  
 }
 }

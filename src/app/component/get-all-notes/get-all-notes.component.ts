@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {NoteDto} from 'src/app/model/note.noteDto.model';
 import {NoteService} from 'src/app/Service/note.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, mixinColor} from '@angular/material';
 import {DialogBoxComponent} from 'src/app/component/dialog-box/dialog-box.component';
 import {LabelService} from 'src/app/Service/label.service';
 import { MatSnackBar } from '@angular/material';
+import {DataService} from 'src/app/Service/data-service.service';
+import { container } from '@angular/core/src/render3';
 @Component({
   selector: 'app-get-all-notes',
   templateUrl: './get-all-notes.component.html',
@@ -16,12 +18,18 @@ export class GetAllNotesComponent implements OnInit {
   labelsOfNote:any;
   collaboratedNotes:any;
   collaboratedUser:any;
-  constructor(private httpUser: NoteService, private httpLabel: LabelService,public dialog: MatDialog, private snackbar:MatSnackBar){}
+  currentDate = new Date();
+  noteView:boolean = false;
+  message:any
+  constructor(private httpUser: NoteService, private httpLabel: LabelService,public dialog: MatDialog, private snackbar:MatSnackBar,  private dataService:DataService){}
  
   ngOnInit() {
-    this.httpUser.getAllNotes().subscribe((response: any)=>
+    this.dataService.currentMessage.subscribe(
+      (response:any)=> {
+        this.message=response;
+        this.httpUser.getAllNotes().subscribe((response: any)=>
     {
-        console.log("Ahetesham All Notes Response= "+response);
+        console.log("Venky",response);
         this.notes = response;
     });
    
@@ -31,6 +39,9 @@ export class GetAllNotesComponent implements OnInit {
         this.collaboratedNotes = collaboratedNotesResponse;
     }); 
     
+      }
+    );
+   
   }
   pin(note:any)
   {
@@ -38,11 +49,12 @@ export class GetAllNotesComponent implements OnInit {
     this.httpUser.pinNote(note.id).subscribe((response:any)=>
     {
       console.log(response);
+      this.dataService.changeMessage("Note Pinned");
     }); 
   }
   openDialog(note:any): void {
     const dialogRef = this.dialog.open(DialogBoxComponent, {
-      width: '600px',
+     width:'600px',
       data: note
     });
     // console.log(note.id);
@@ -58,8 +70,17 @@ export class GetAllNotesComponent implements OnInit {
     this.httpLabel.removeLabelFromNote(note.id,label.id).subscribe((response: any)=>
     {
       this.snackbar.open(response.message,'undo' ,{duration:5000});
+      this.dataService.changeMessage("Label Removed From Note");
     }); 
     
+  }
+  removeReminder(note:any)
+  {
+    this.httpUser.removeReminder(note.id).subscribe((response:any)=>
+  {
+      this.snackbar.open(response.message,'undo',{duration:5000});
+      this.dataService.changeMessage("Reminder Removed From Note");
+  });   
   }
 }
 

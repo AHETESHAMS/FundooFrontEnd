@@ -32,6 +32,7 @@ export class AddNoteComponent implements OnInit {
       console.log(this.noteDto);
       this.httpUser.createNote("/createnote?token="+localStorage.getItem('token'),this.noteDto).subscribe(data=>
         { this.snackbar.open(data.message,'undo' ,{duration:5000});
+        this.dataService.changeMessage(data.statusMessage);
       console.log(data)})
       this.showAddNote=false;
     } 

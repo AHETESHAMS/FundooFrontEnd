@@ -103,4 +103,13 @@ export class NoteService {
    return this.http.put("http://localhost:8080/removecollaborator?token="+localStorage.getItem('token')+"&emailId="+collaboratedUserEmailId+"&noteId="+noteId,null);
    
  }
+ addReminder(noteId:any,reminder:any)
+ {
+   console.log("addReminder Service");
+   return this.http.post("http://localhost:8080/addreminder?token="+localStorage.getItem('token')+"&noteId="+noteId+"&reminder="+reminder,null);
+ }
+removeReminder(noteId:any)
+{
+  return this.http.put("http://localhost:8080/removeReminder?token="+localStorage.getItem('token')+"&noteId="+noteId,null);
+}
 }

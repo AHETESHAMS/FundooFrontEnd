@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="start center" style="width:60%">
-    <button mat-icon-button (click)="reminder()"><mat-icon>add_alert</mat-icon></button>
+    <button mat-icon-button  [matMenuTriggerFor]="reminder"><mat-icon>add_alert</mat-icon></button>
     <button mat-icon-button (click)="collaborator()"><mat-icon>person_add</mat-icon></button>
     <button mat-icon-button [matMenuTriggerFor]="colors"><mat-icon>color_lense</mat-icon></button>
     <button mat-icon-button><mat-icon>image</mat-icon></button>
@@ -32,7 +32,19 @@
       </button>
       </div>
   </mat-menu>
+<mat-menu #reminder="matMenu">
+    <h4 style="font-weight: normal;margin-left: 10%">Reminder</h4>
+    <button mat-menu-item (click)="setReminderToday()">
+        <span>Later today</span>
+     </button>   
+        <button mat-menu-item (click)="setReminderTomorrow()">
+        <span>Tomorrow</span>
+      </button>
+      <button mat-menu-item (click)="setReminderNextWeek()">
+        <span>Next week</span>
+    </button>
 
+  </mat-menu>
 <mat-menu #colors="matMenu" [overlapTrigger]="false">
     <ng-template matMenuContent let-note="note">
     <div fxLayout="row wrap" fxLayoutAlign="end
