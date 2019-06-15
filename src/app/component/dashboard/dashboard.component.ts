@@ -8,22 +8,22 @@ import {LabelService} from 'src/app/Service/label.service'
 import { LabelDto } from 'src/app/model/label.labelDto';
 import { ProfileDialogBoxComponent } from '../profile-dialog-box/profile-dialog-box.component';
 import { UserService } from 'src/app/Service/user.service';
+import { InteractionService } from 'src/app/Service/interaction.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnDestroy {
-  @Input() noteView:any;
   mobileQuery: MediaQueryList;
-
+  noteView: boolean;
 
   
 
   private _mobileQueryListener: () => void;
 
   constructor(private httpUser: UserService, private httpLabel:LabelService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,  private router:Router, 
-    private dialog:MatDialog) {
+    private dialog:MatDialog, private interactionService:InteractionService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -53,7 +53,7 @@ export class DashboardComponent implements OnDestroy {
   openDialog(): void {
     const dialogRef = this.dialog.open(LabelDialogBoxComponent, {
       maxWidth: '350px',
-     maxHeight:'500px'
+     minHeight:'200px'
     });
     // console.log(note.id);
     dialogRef.afterClosed().subscribe(result => {
@@ -81,7 +81,8 @@ profileDialogBox(): void {
 }
 changeView()
 {
-  console.log("View="+this.noteView);
-  
+  this.noteView = !this.noteView;
+  console.log("View"+this.noteView);
+  this.interactionService.sendView(this.noteView);
 }
 }
